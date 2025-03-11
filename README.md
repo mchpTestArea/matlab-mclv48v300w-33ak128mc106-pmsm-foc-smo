@@ -4,7 +4,7 @@
     <img alt="Microchip Logo." src="images/microchip_logo_black_red.png">
 </picture> 
 
-## %repoDescritpion%
+## matlab mclv48v300w 33ak128mc106 pmsm foc smo
 
 Board Image if any.
 
