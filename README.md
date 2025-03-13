@@ -4,7 +4,7 @@
     <img alt="Microchip Logo." src="images/microchip_logo_black_red.png">
 </picture> 
 
-# MATLAB/Simulink Model of SMO-based FOC for PMSM: MCLV-48V-300W Development Board and dsPI33AK128MC106 Motor Control DIM
+# MATLAB/Simulink Model of SMO-based Sensorless FOC for PMSM: MCLV-48V-300W Development Board and dsPI33AK128MC106 Motor Control DIM
 
 ## 1. INTRODUCTION
 
