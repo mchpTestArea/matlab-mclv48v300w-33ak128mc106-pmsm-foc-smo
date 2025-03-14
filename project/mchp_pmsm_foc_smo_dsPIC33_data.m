@@ -1,8 +1,6 @@
 %% ************************************************************************
-% Model         :   Field Oriented Control of PMSM Using Inductive Position
-%                   Sensor
-% Description   :   Set Parameters for FOC of PMSM Using Inductive Position
-%                   Sensor
+% Model         :   Field Oriented Control of PMSM Using SMO
+% Description   :   Set Parameters for FOC of PMSM Using SMO
 % File name     :   mchp_pmsm_foc_ips_dsPIC33_data.m
 % Copyright 2025 Microchip Technology Inc.
 
@@ -28,26 +26,26 @@ dataType        = 'single';
 
 %Long Hurst Motor (Uncomment while using this motor from line below)
 
-pmsm.model  = 'Hurst 300';      %           // Manufacturer Model Number
-pmsm.sn     = '123456';         %           // Manufacturer Model Number
-pmsm.p  = 5;                    %           // Pole Pairs for the motor
-pmsm.Rs = 0.285;                %Ohm        // Stator Resistor
-pmsm.Ld = 2.8698e-4;            %H          // D-axis inductance value
-pmsm.Lq = 2.8698e-4;            %H          // Q-axis inductance value
-pmsm.Lav= (pmsm.Ld+pmsm.Lq)/2;  %H          // Average inductance
-pmsm.Ke = 7.3425;               %Bemf Const	// Vline_peak/krpm
-pmsm.Kt = 0.274;                %Nm/A       // Torque constant
-pmsm.J = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
-pmsm.B = 2.636875217824e-6;     %Kg-m2/s    // Friction Co-efficient
-pmsm.I_rated  = 3.42*sqrt(2);   %A      	// Rated current (phase-peak)
-pmsm.N_max    = 3200;           %rpm        // Max speed
-pmsm.N_rated  = 2896;           %rpm        // rated speed
-pmsm.f_rated  = (pmsm.N_rated*pmsm.p*2)/120;                %Hz    // Rated Frequency
-pmsm.w_rated_elec = pmsm.f_rated*2*pi;                      %rad/sec    // Rated electrical speed
-pmsm.w_base_elec = pmsm.w_rated_elec*1;                     %rad/sec    // Base electrical speed
-pmsm.FluxPM   = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60);    %PM flux computed from Ke
-pmsm.T_rated  = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;      %Get T_rated from I_rated
-pmsm.QEPSlits = 1000;
+pmsm.model          = 'Hurst 300';      %           // Manufacturer Model Number
+pmsm.sn             = '123456';         %           // Manufacturer Model Number
+pmsm.p              = 5;                    %           // Pole Pairs for the motor
+pmsm.Rs             = 0.285;                %Ohm        // Stator Resistor
+pmsm.Ld             = 2.8698e-4;            %H          // D-axis inductance value
+pmsm.Lq             = 2.8698e-4;            %H          // Q-axis inductance value
+pmsm.Lav            = (pmsm.Ld+pmsm.Lq)/2;  %H          // Average inductance
+pmsm.Ke             = 7.3425;               %Bemf Const	// Vline_peak/krpm
+pmsm.Kt             = 0.274;                %Nm/A       // Torque constant
+pmsm.J              = 7.061551833333e-6;     %Kg-m2      // Inertia in SI units
+pmsm.B              = 2.636875217824e-6;     %Kg-m2/s    // Friction Co-efficient
+pmsm.I_rated        = 3.42*sqrt(2);   %A      	// Rated current (phase-peak)
+pmsm.N_max          = 3200;           %rpm        // Max speed
+pmsm.N_rated        = 2896;           %rpm        // rated speed
+pmsm.f_rated        = (pmsm.N_rated*pmsm.p*2)/120;                %Hz    // Rated Frequency
+pmsm.w_rated_elec   = pmsm.f_rated*2*pi;                      %rad/sec    // Rated electrical speed
+pmsm.w_base_elec    = pmsm.w_rated_elec*1;                     %rad/sec    // Base electrical speed
+pmsm.FluxPM         = (pmsm.Ke)/(sqrt(3)*2*pi*1000*pmsm.p/60);    %PM flux computed from Ke
+pmsm.T_rated        = (3/2)*pmsm.p*pmsm.FluxPM*pmsm.I_rated;      %Get T_rated from I_rated
+pmsm.QEPSlits       = 1000;
 
 %% Calibration Parameters Hurst 300
 CalibSpeed      = 500;          %rpm
@@ -107,9 +105,9 @@ fc = 10;
 
 %% Serial Communication for Debugging
 
-Ts_serialIn     = 100e-3;
-Ts_serialOut    = 500e-6;
+Ts_serialIn         = 100e-3;
+Ts_serialOut        = 500e-6;
 
-target.frameSize = 120;
-target.comport = 'COM3';
-target.BaudRate = 921659;
+target.frameSize    = 120;
+target.comport      = 'COM5';
+target.BaudRate     = 921659;
