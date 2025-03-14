@@ -18,7 +18,7 @@
 				"MPLAB Device blocks for Simulink",
 				"Motor Control Blockset",
 				"Embedded Coder",
-				
+            "Stateflow"				
       ],
       "compiler":{
          "name":"XCDSC",
@@ -45,7 +45,6 @@
          "Sensorless Control",
          "ADC",
          "PWM"
-
       ]
    }
 }
