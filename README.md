@@ -11,7 +11,9 @@
 This demonstration describes the setup requirements to drive a Permanent Magnet Synchronous Motor
 (PMSM) using Sliding Mode Observer (SMO) based Field Oriented Control (FOC) on the hardware
 platform MCLV-48V-300W Development Board ([EV18H47A](https://www.microchip.com/en-us/development-tool/EV18H47A)) and dsPIC33AK128MC106 Motor Control Dual Inline
-Module (DIM) ([EV68M17A](https://www.microchip.com/en-us/development-tool/EV68M17A)). </p>
+Module (DIM) ([EV68M17A](https://www.microchip.com/en-us/development-tool/EV68M17A)). 
+
+The MATLAB/Simulink model includes Sensorless Field Oriented Control (FOC) with Sliding Mode Observer (SMO) Estimator referenced from ([AN1078](https://www.microchip.com/en-us/application-notes/an1078)) “Sensorless Field Oriented Control of a PMSM”. It also includes field weakening algorithm to support extended speed operation.</p>
 
 ## 2.	SUGGESTED DEMONSTRATION REQUIREMENTS
 ### 2.1 MATLAB Model Required for the Demonstration
@@ -53,9 +55,9 @@ This section describes the hardware setup required for the demonstration.
      <p align="left" >
      <img  src="images/dimconnected.PNG"width="500"></p>
 
-3. Connect the 3-phase wires from the motor to PHC, PHB and PHA of the **connector J4** (in the same order as shown in the picture), provided on the development board.
+3. Connect the 3-phase wires from the motor to PHC, PHB and PHA of the **connector J4**, provided on the development board.
       <p align="left">
-      <img  src="images/mclvpower.png"width="500"></p>
+      <img  src="images/har1.png"width="500"></p>
 
 5. Plug the 24V power supply to **connector J1** on the development board. Alternatively, the development board can also be powered through connector J3.
       <p align="left">
@@ -69,65 +71,92 @@ This section describes the hardware setup required for the demonstration.
        <img  src="images/mclvprogramming.PNG"width="500"></p>
  
  </br>
+ 
 ## 4.	BASIC DEMONSTRATION
 <p style='text-align: justify;'> Follow the below instructions step-by-step, to set up and run the motor control demo application:</p>
-1. Launch MATLAB (refer the section [“2.2 Software Tools Used for Testing the MATLAB/Simulink Model"](#22-software-tools-used-for-testing-the-matlabsimulink-model)).</p> 
+
+1. Launch MATLAB (refer the section ["2.2 Software Tools Used for Testing the MATLAB/Simulink Model"](#22-software-tools-used-for-testing-the-matlabsimulink-model)). </p> 
+
 2. Open the folder downloaded from the repository, in which MATLAB files are saved (refer the section ["2.1 MATLAB Model Required for the Demonstration"](#21-matlab-model-required-for-the-demonstration)).
     <p align="left" >
     <img  src="images/dem1.png"width="500"></p>
+
 3.	<p style='text-align: justify;'> Double click and open the MATLAB script file (.m file). This script file contains the configuration parameter for the motor and board. By default, the script file is configured to run Hurst 300 motor and development board. Run the file by clicking the <b>“Run”</b> icon and wait till all variables gets loaded on the <b>‘Workspace’</b> tab.
+    
     <p align="left">
       <img  src="images/dem2.png"width="500"></p>
     </p>
-4.	Double click on the Encoder FOC Simulink model - **pmsm_encoder.slx**.
+
+4.	Double click on the Encoder FOC Simulink model - <b>pmsm_smo.slx</b>.
+    
     <p align="left">
       <img  src="images/dem3.png"width="500"></p>
     </p>
+
 5.	<p style='text-align: justify;'>This opens the Simulink model as shown below. Click on the <b>"Run"</b> icon to start the simulation.
-    <p align="left">
-      <img  src="images/dem4.png"width="500"></p>
-    </p>
-6.	<p style='text-align: justify;'>To plot the simulation result, <b>Data Inspector</b> is used (refer to figure below). To observe the additional signals, log them as required. Alternatively, normal Simulink Scope can be used to plot the signals.
+    
     <p align="left">
       <img  src="images/dem5.png"width="500"></p>
     </p>
+
+6.	<p style='text-align: justify;'>To plot the simulation result, <b>Data Inspector</b> is used (refer to figure below). To observe the additional signals, log them as required. Alternatively, normal Simulink Scope can be used to plot the signals.
+    
+    <p align="left">
+      <img  src="images/dem6.png"width="500"></p>
+    </p>
+
 7.	<p style='text-align: justify;'>From this Simulink model an MPLAB X project can be generated, and it can be used to run the PMSM motor using development board. <p style='text-align: justify;'>To generate the code from the Simulink model, go to the <b>"MICROCHIP"</b> tab, and enable the tabs shown in the figure below. 
+    
     <p align="left">
       <img  src="images/dem7.png"width="500"></p>
     </p>
+
 8.	<p style='text-align: justify;'>	To generate the code, click on <b>"Build" </b> option under the <b>“Microchip”</b> tab and <b>"Build, Deploy & Start" </b> drop down. This will generate the MPLAB X project from the Simulink model and program the dsPIC33AK128MC106 device.
+    
     <p align="left">
       <img  src="images/demo8.png"width="500"></p>
     </p>
+
 9.	<p style='text-align: justify;'>After completing the process, the <b>‘Operation Succeeded’</b> message will be displayed on the <b>‘Diagnostics Viewer’</b>.
+    
     <p align="left">
       <img  src="images/dem9.png"width="500"></p>
     </p>
+
 10.	If the device is successfully programmed, <b>LED1 - LD2</b> and the <b>LED2 - LD3</b> will be blinking.
+   
     <p align="left">
       <img  src="images/led.png"width="500"></p>
     </p>
+
 11.	To Run the motor, press the push button <b>SW1</b>.
+    
     <p align="left">
       <img  src="images/pushbutton1.png"width="500"></p> 
     </p>
+
 12.	The motor speed can be varied using the potentiometer (labeled <b>“POT”</b>).
+    
     <p align="left">
       <img  src="images/potentiometer.png"width="500"></p>
     </p>
+
 13.	Press the push button <b>SW1</b> to stop the motor. Make sure motor is reduced minimum potentimeter value before stopping the motor.
+    
     <p align="left">
       <img  src="images/pushbutton1.png"width="500"></p>
     </p>
     
 ## 5. DATA VISUALIZATION USING MOTOR CONTROL BLOCKSET (MCB) HOST MODEL
 <p style='text-align: justify;'>The FOC model comes with the initialization required for data visualization using Motor Control Blockset Host Model (MCB Host Model). The MCB Host Model is a Simulink model which facilitates data visualization through the UART Serial Interface.
+
 1. <p style='text-align: justify;'>To establish serial communication with the host PC, connect a micro-USB cable between the host PC and connector J16 on the development board. This interface is also used for programming.
+
 2. <p style='text-align: justify;'>Enter the COM port number of the USB connection in the MATLAB script file.
     <p align="left">
-      <img  src="images/host_1.png"width="500"></p>
+      <img  src="images/host1.png"width="500"></p>
     </p>
-3. Ensure the Optical Encoder FOC model is programmed and running as described under section ["4. Basic Demonstration"](#4-basic-demonstration) by following steps 1 through 13.
+3. Ensure the SMO-based sensorless FOC model is programmed and running as described under section ["4. Basic Demonstration"](#4-basic-demonstration) by following steps 1 through 13.
 4. Open the **mcb_hostmodel_dsPIC33A.slx** model and click on the **Run** icon to plot the real time data.
     <p align="left">
       <img  src="images/host_2.png"width="500"></p>
@@ -139,6 +168,7 @@ This section describes the hardware setup required for the demonstration.
 
 ## 	REFERENCES:
 For more information, refer to the following documents or links.
+1. Application Note on "Sensorless Field Oriented Control of a PMSM" [(AN1078)](https://www.microchip.com/en-us/application-notes/an1078)
 1.	MCLV-48V-300W Development Board User’s Guide [(DS50003297)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-Low-Voltage-48V-300W-Inverter-Board-Users-Guide-DS50003297.pdf)
 2. dsPIC33AK128MC106 Motor Control Dual In-Line Module (DIM) Information Sheet [(DS70005527)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/InformationSheet/dsPIC33AK128MC106-Motor-Control-Dual-In-Line-Module-DIM-Information-Sheet-DS70005527.pdf)
 3. dsPIC33AK128MC106 Family datasheet [(DS70005539)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/DataSheets/dsPIC33AK128MC106-Family-Data-Sheet-DS70005539.pdf)
