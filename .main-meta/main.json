@@ -39,11 +39,10 @@
          }
       },
       "keywords":[
-        "Motor Control",
+         "Motor Control",
          "FOC",
-	 "Sliding Mode Observer",
-	 "SMO",
-	"Sensorless Control",
+         "SMO",
+         "Sensorless Control",
          "ADC",
          "PWM"
 
