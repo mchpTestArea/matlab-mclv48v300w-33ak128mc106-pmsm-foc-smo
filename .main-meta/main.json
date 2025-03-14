@@ -1,0 +1,50 @@
+{
+   "metaDataVersion":"1.0.0",
+   "category":"com.microchip.matlab.project",
+   "content":{
+      "metaDataVersion":"1.0.0",
+      "name":"com.microchip.matlab.project.matlab-mclv48v300w-33ak128mc106-pmsm-foc-smo",
+      "version":"1.0.0",
+      "displayName":"MATLAB-Simulink model for Sliding Mode Observer-based FOC",
+      "projectName":"matlab-mclv48v300w-33ak128mc106-pmsm-foc-smo",
+      "shortDescription":"MATLAB-Simulink model for Sliding Mode Observer-based FOC with MCLV-48V-300W Development Board and dsPIC33AK128MC106 MC DIM",
+      "simulationTool":{
+         "name":"MATLAB/Simulink",
+         "semverRange":">=2022"
+      },
+	  "addonPackages":[
+				"MATLAB add on packages",
+				"Simulink",
+				"MPLAB Device blocks for Simulink",
+				"Motor Control Blockset",
+				"Embedded Coder",
+            "Stateflow"				
+      ],
+      "compiler":{
+         "name":"XCDSC",
+         "semverRange":"^3.21"
+      },
+      "dfp":{
+         "name":"dsPIC33AK-MC_DFP",
+         "semverRange":">=1.1.109"
+      },
+      "device":{
+         "metaDataVersion":"1.0.0",
+         "category":"com.microchip.portal.contentRef",
+         "content":{
+            "metaDataVersion":"1.0.0",
+            "category":"com.microchip.device",
+            "name":"dsPIC33AK128MC106",
+            "versionRange":"*"
+         }
+      },
+      "keywords":[
+         "Motor Control",
+         "FOC",
+         "SMO",
+         "Sensorless Control",
+         "ADC",
+         "PWM"
+      ]
+   }
+}
